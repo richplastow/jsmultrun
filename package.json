@@ -1,6 +1,6 @@
 {
   "name": "jsmultrun",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Run JavaScript under node, v8, rhino, webkit, all at once",
   "main": "build/jsmultrun.js",
   "directories": {

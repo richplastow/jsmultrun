@@ -42,9 +42,9 @@ make the source code less verbose: `_o.O == typeof x` vs `'object' == typeof x`.
     #       method, not used to avoid confusion with a method’s `M` variable
     _o.N = 'number'
     _o.O = 'object'
-    #       project name, see build-constants, below
     _o.R = 'regexp'
     _o.S = 'string'
+    #       title, see build-constants, below
     _o.U = 'undefined'
     #       version, see build-constants, below
     _o.X = 'null'
@@ -58,7 +58,7 @@ Build Constants
 Generated during the build-process and injected into app-scope. 
 
     _o.G = _oG # global scope, passed into the closure as an argument
-    _o.T = _oT # project title, from package.json
+    _o.T = _oT # project title, converted from package.json's name
     _o.V = _oV # project version, from package.json
 
 

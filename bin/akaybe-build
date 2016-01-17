@@ -6,7 +6,7 @@
 
 
     //// Define constants.
-    var C     = 'akaybe-build'
+    var T     = 'akaybe-build'
       , V     = '0.0.11'
 
 
@@ -45,8 +45,8 @@
 
     //// Usage instructions.
       , help = [
-            C + ' ' + V
-          , '================================'.substr(0, (C + ' ' + V).length)
+            T + ' ' + V
+          , '================================'.substr(0, (T + ' ' + V).length)
           , ''
           , 'Injects Akaybe constants and functions during compilation.'
           , ''
@@ -54,16 +54,16 @@
           , 'Basic Usage'
           , '-----------'
           , ''
-          , C + ' -h'
-          , C + ' --version'
-          , C + ' -p'
+          , T + ' -h'
+          , T + ' --version'
+          , T + ' -p'
           , ''
           , ''
           , 'Options'
           , '-------'
           , ''
           , '-h --help     Show this help.'
-          , '-v --version  Show the ' + C + ' version.'
+          , '-v --version  Show the ' + T + ' version.'
           , "-p --plugin   Build each file in the 'plugin/' directory."
           , "-n --npm      Run an npm task."
           , "-w --watch    Provide additional watch directories."
@@ -72,7 +72,7 @@
           , 'Default watch directories'
           , '-------------------------'
           , ''
-          , 'By default, ' + C + ' will watch for changes to:'
+          , 'By default, ' + T + ' will watch for changes to:'
           , '/src          Concatenated and compiled to /build'
           , '/test         Concatenated with /src and compiled to /build/test'
           , ''
@@ -398,12 +398,12 @@
 
     //// Revive the prompt properly after ctrl-c.
     process.on('SIGINT', function () {
-        exit(0, '\n...' + C + ' ' + V + ' done.');
+        exit(0, '\n...' + T + ' ' + V + ' done.');
     });
 
 
     //// Startup message.
-    process.stdout.write(C + ' ' + V + ' begun...\n');
+    process.stdout.write(T + ' ' + V + ' begun...\n');
 
 
 }(this);
