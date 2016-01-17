@@ -58,7 +58,7 @@ Build Constants
 Generated during the build-process and injected into app-scope. 
 
     _o.G = _oG # global scope, passed into the closure as an argument
-    _o.N = _oN # project name, from package.json
+    _o.T = _oT # project title, from package.json
     _o.V = _oV # project version, from package.json
 
 

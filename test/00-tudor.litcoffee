@@ -129,7 +129,7 @@ Create the `article` object and initialize `runner` and `section`.
 
 Run some basic validation on the `lines` array. 
 
-        if _o.A != _o.type lines then throw Error "`lines` isn’t an array" + _o.type(lines) + "/" + _o.A
+        if _o.A != _o.type lines then throw Error "`lines` isn’t an array"
         if 0 == lines.length then throw Error "`lines` has no elements"
         if _o.S != _o.type lines[0] then throw Error "`lines[0]` isn’t a string"
 

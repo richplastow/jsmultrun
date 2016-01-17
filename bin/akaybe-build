@@ -152,10 +152,10 @@
         }
 
 
-    //// `iandv()` returns a CoffeeScript line defining `_oN` and `_oV`.
+    //// `iandv()` returns a CoffeeScript line defining `_oT` and `_oV`.
       , iandv = function (indent) {
             indent  = undefined === indent  ? '    ' : indent; // for litcoffee
-            return indent + "_oN = '" + pkg.title    + "'; " +
+            return indent + "_oT = '" + pkg.title    + "'; " +
                             "_oV = '" + pkg.version  + "'; " +
                             "_o  = {};"
             ;
@@ -211,14 +211,14 @@
     //// Prepare the command which `nodemon` will run. 
     builder =
 
-    //// Create CoffeeScript for the legal-comment and the `_oN` and `_oV` vars.
+    //// Create CoffeeScript for the legal-comment and the `_oT` and `_oV` vars.
         'echo "'  // begin a string which will be piped to `cat`
       + '    ###' // `coffee` will convert this to '/*'
       + '! '      // minifiers should preserve a comment starting '/*!'
       + legal()   // add title, version, license and homepage
       + ' ###\\n' // end the legal-comment
-      + iandv()   // inject the title and version into `_oN` and `_oV` vars
-      + ' \\n'    // newline after the `_oN` and `_oV` vars
+      + iandv()   // inject the title and version into `_oT` and `_oV` vars
+      + ' \\n'    // newline after the `_oT` and `_oV` vars
       + '" | '    // end the string, and pipe it to `cat`
 
     //// Concatenate and compile the CoffeeScript, and save the JavaScript file.
@@ -254,8 +254,8 @@
       + '! '      // minifiers should preserve a comment starting '/*!'
       + legal()   // add title, version, license and homepage
       + ' ###\\n' // end the legal-comment
-      + iandv()   // inject the title and version into `_oN` and `_oV` vars
-      + ' \\n'    // newline after the `_oN` and `_oV` vars
+      + iandv()   // inject the title and version into `_oT` and `_oV` vars
+      + ' \\n'    // newline after the `_oT` and `_oV` vars
       + '" | '    // end the string, and pipe it to `cat`
       + 'cat - '  // `cat` accepts piped text unix.stackexchange.com/a/16364
       + 'src/**/*.litcoffee src/*.litcoffee test/*.litcoffee '
