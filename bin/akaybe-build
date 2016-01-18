@@ -21,8 +21,8 @@
       , pkg   = {}
       , argv  = process.argv.slice()
       , doPlugin = false
-      , flag = false
-      , npms = []
+      , flag  = false
+      , npms  = []
       , watch = []
       , arg
       , builder
@@ -152,8 +152,8 @@
         }
 
 
-    //// `iandv()` returns a CoffeeScript line defining `_oT` and `_oV`.
-      , iandv = function (indent) {
+    //// `tAndV()` returns a CoffeeScript line defining `_oT` and `_oV`.
+      , tAndV = function (indent) {
             indent  = undefined === indent  ? '    ' : indent; // for litcoffee
             return indent + "_oT = '" + pkg.title    + "'; " +
                             "_oV = '" + pkg.version  + "'; " +
@@ -217,7 +217,7 @@
       + '! '      // minifiers should preserve a comment starting '/*!'
       + legal()   // add title, version, license and homepage
       + ' ###\\n' // end the legal-comment
-      + iandv()   // inject the title and version into `_oT` and `_oV` vars
+      + tAndV()   // inject the title and version into `_oT` and `_oV` vars
       + ' \\n'    // newline after the `_oT` and `_oV` vars
       + '" | '    // end the string, and pipe it to `cat`
 
@@ -254,7 +254,7 @@
       + '! '      // minifiers should preserve a comment starting '/*!'
       + legal()   // add title, version, license and homepage
       + ' ###\\n' // end the legal-comment
-      + iandv()   // inject the title and version into `_oT` and `_oV` vars
+      + tAndV()   // inject the title and version into `_oT` and `_oV` vars
       + ' \\n'    // newline after the `_oT` and `_oV` vars
       + '" | '    // end the string, and pipe it to `cat`
       + 'cat - '  // `cat` accepts piped text unix.stackexchange.com/a/16364

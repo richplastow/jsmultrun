@@ -129,9 +129,9 @@ Create the `article` object and initialize `runner` and `section`.
 
 Run some basic validation on the `lines` array. 
 
-        if _o.A != _o.type lines then throw Error "`lines` isn’t an array"
+        if A != _o.type lines then throw Error "`lines` isn’t an array"
         if 0 == lines.length then throw Error "`lines` has no elements"
-        if _o.S != _o.type lines[0] then throw Error "`lines[0]` isn’t a string"
+        if S != _o.type lines[0] then throw Error "`lines[0]` isn’t a string"
 
 Add the article heading. 
 
@@ -146,16 +146,16 @@ Step through each line, populating the `article` object as we go.
 
 Change the current assertion-runner. 
 
-            when _o.O
+            when O
               if ! line.runner then throw new Error "Errant object" #@todo better error message
               runner = line.runner
 
 Record a mock-modifier. 
 
-            when _o.F
+            when F
               section.jobs.push line
 
-            when _o.S
+            when S
 
 A string might signify a new assertion in the current section... 
 
@@ -207,13 +207,13 @@ Initialize the output array, as well as `mock` and the page pass/fail tallies.
 
             for job in section.jobs
               switch _o.type job
-                when _o.F # a mock-modifier
+                when F # a mock-modifier
                   try mock = job.apply @, mock catch e then error = e.message
                   if error
                     mockFail++
                     secFail++ #@todo does this interfere with proper pass/fail tally?
                     sec.push @formatMockModifierError job, error
-                when _o.A # in the form `[ runner, heading, expect, actual ]`
+                when A # in the form `[ runner, heading, expect, actual ]`
                   [ runner, heading, expect, actual ] = job # dereference
                   result = runner expect, actual, mock # run the test
                   if ! result
@@ -407,7 +407,7 @@ An assertion-runner where `expect` is a regexp, or an object containing a
           try result = actual.apply @, mock catch e then error = e
           if error
             [ 'Unexpected exception', error ]
-          else if _o.F != typeof expect.test
+          else if F != typeof expect.test
             [ '`test()` is not a function', { message:expect } ]
           else if ! expect.test ''+result
             [ ''+result, 'failed test', expect ]
@@ -417,12 +417,12 @@ An assertion-runner where `expect` is a regexp, or an object containing a
 
 #### `isAssertion()`
 Xx. @todo
-Note brackets around `_o.O == _o.type line1`, which makes this conditional 
+Note brackets around `O == _o.type line1`, which makes this conditional 
 behave as expected! 
 
       isAssertion: (line1, line2) ->
-        return false if _o.F != _o.type line2
-        return false if (_o.O == _o.type line1) && _o.F == _o.type line1.runner
+        return false if F != _o.type line2
+        return false if (O == _o.type line1) && F == _o.type line1.runner
         true
 
 
@@ -434,7 +434,7 @@ Instantiate the `tudor` object
 Create an instance of `Tudor`, to add assertions to. 
 
     tudor = new Tudor
-      format: if _o.O == typeof window then 'html' else 'plain'
+      format: if O == typeof window then 'html' else 'plain'
 
 
 Expose Tudor’s `do()` function as a module method, so that any consumer of 

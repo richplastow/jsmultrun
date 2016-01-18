@@ -1,6 +1,6 @@
 {
   "name": "jsmultrun",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Run JavaScript under node, v8, rhino, webkit, all at once",
   "main": "build/jsmultrun.js",
   "directories": {
@@ -16,7 +16,14 @@
   "dependencies": {
   },
   "keywords": [
-    "CoffeeScript"
+    "CoffeeScript",
+    "performance",
+    "runner",
+    "node.js",
+    "v8",
+    "rhino",
+    "webkit",
+    "spidermonkey"
   ],
   "scripts": {
     "hi": "open .; open index.html; open test/run-test.html; subl .",

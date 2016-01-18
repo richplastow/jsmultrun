@@ -17,6 +17,21 @@ JsMultRun
 
 
 
+`config` Properties
+-------------------
+
+#### `log <integer>`
+Controls the level of logging sent to output or `console.log()`, from `0` (no 
+logging) to `9` (very verbose). 
+
+        @log = _o.valid M + 'config.', config, 'log <integer 0-9>', 3
+
+
+
+
+
+
+
 Properties
 ----------
 
